@@ -1,24 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Header } from "./components";
+import {
+  Homepage,
+  Error,
+  Capsules,
+  Cores,
+  Crew,
+  SingleCrew,
+  Dragons,
+  SingleDragon,
+  Landpads,
+  SingleLandpads,
+  Launches,
+  SingleLaunch,
+  Launchpads,
+  SingleLaunchpad,
+  Payloads,
+  Roadster,
+  Rockets,
+  SingleRocket,
+  Ships,
+  SingleShip,
+  Starlink,
+} from "./Pages";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Homepage />}></Route>
+        <Route path='/capsules' element={<Capsules />}></Route>
+        <Route path='/cores' element={<Cores />}></Route>
+        <Route path='/crew' element={<Crew />}></Route>
+        <Route path='/crew/:id' element={<SingleCrew />}></Route>
+        <Route path='/dragons' element={<Dragons />}></Route>
+        <Route path='/dragons/:id' element={<SingleDragon />}></Route>
+        <Route path='/landpads' element={<Landpads />}></Route>
+        <Route path='/landpads/:id' element={<SingleLandpads />}></Route>
+        <Route path='/launches' element={<Launches />}></Route>
+        <Route path='/launches/:id' element={<SingleLaunch />}></Route>
+        <Route path='/launchpads' element={<Launchpads />}></Route>
+        <Route path='launchpads/:id' element={<SingleLaunchpad />}></Route>
+        <Route path='/payloads' element={<Payloads />}></Route>
+        <Route path='/roadster' element={<Roadster />}></Route>
+        <Route path='/rockets' element={<Rockets />}></Route>
+        <Route path='/rockets/:id' element={<SingleRocket />}></Route>
+        <Route path='/ships' element={<Ships />}></Route>
+        <Route path='/ships/:id' element={<SingleShip />}></Route>
+        <Route path='/starlink' element={<Starlink />}></Route>
+        <Route path='*' element={<Error />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
